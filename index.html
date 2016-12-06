@@ -14,7 +14,7 @@
                         <th>Name</th>
                     </tr>
                     <tbody data-bind="foreach: catalog">
-                        <tr>
+                        <tr data-bind="style:{'font-weight': mediaType === 'Book' ? 'bold' : 'normal'}">
                             <td data-bind="text: mediaType"></td>
                             <td data-bind="text: name"></td>
                         </tr>
