@@ -20,4 +20,4 @@ app.DataContext = (function($){
     }
 
     return me;
-})(ko);
+})(jQuery);

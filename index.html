@@ -8,6 +8,18 @@
         <div class="layout">
             <div class="content">
                 <h1>My Media Catalog</h1>
+                <table>
+                    <tr>
+                        <th>Type</th>
+                        <th>Name</th>
+                    </tr>
+                    <tbody data-bind="foreach: catalog">
+                        <tr>
+                            <td data-bind="text: mediaType"></td>
+                            <td data-bind="text: name"></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
         <script src="js/vendor/jquery-3.1.1.js"></script>
@@ -15,5 +27,15 @@
         <script src="js/dataContext.js"></script>   
         <script src="js/models/media.js"></script>
         <script src="js/viewModels/mainViewModel.js"></script>
+        <script>
+        
+            $(document).ready(function(){
+
+                app.MainViewModel.init();
+
+                ko.applyBindings(app.MainViewModel);
+
+            });
+        </script>
     </body>
 </html>
