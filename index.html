@@ -16,7 +16,7 @@
                     <tbody data-bind="foreach: catalog">
                         <tr data-bind="style:{'font-weight': mediaType === 'Book' ? 'bold' : 'normal'}, css: {digital: $.inArray(mediaType, ['CD','DVD','Game']) > 1}">
                             <td data-bind="text: mediaType"></td>
-                            <td data-bind="text: name"></td>
+                            <td data-bind="text: name, attr:{ title: isbn}"></td>
                         </tr>
                     </tbody>
                 </table>
