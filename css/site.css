@@ -25,6 +25,27 @@ body {
         width: 878px;
     }
 
+ul.menu {
+    list-style: none;
+    margin: 0 0 0 635px;
+    padding: 0;
+}
+
+    ul.menu li {
+        display: inline-block;
+        margin-right: 20px;
+    }
+
+        ul.menu li a {
+            color: #000;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+            ul.menu li a:hover {
+                text-decoration: underline;
+            }
+
 table {
     width: 100%;
 }
@@ -42,6 +63,43 @@ table {
         padding: 5px;
     }
 
+fieldset {
+    border: 1px solid #000;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+    fieldset ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+        fieldset ol li {
+            margin-bottom: 10px;
+        }
+
+            fieldset ol li label {
+                display: block;
+                font-size: small;
+            }
+
+                fieldset ol li label.checkbox {
+                    display: inline-block;
+                }
+
+input[type=text], select {
+    width: 100%;
+}
+
+.output {
+    background: #d2e6d7;
+    border: 1px solid #428075;
+    font-size: xx-large;
+    font-weight: bold;
+    min-height: 35px;
+    padding: 5px;
+}
 .digital {
     font-style: italic;
 }
