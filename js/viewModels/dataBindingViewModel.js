@@ -4,6 +4,7 @@ app.DataBindingViewModel = (function(){
 
     var me = {
         message: ko.observable(''),
+        color: ko.observable(''),
         colors: ["Red", "Green", "Blue", "Yellow", "Black", "White"],
         loadMessage: loadMessage
     }

@@ -20,6 +20,17 @@
                     </ol>
                     <button data-bind="click: loadMessage">Load Message</button>
                 </fieldset>
+                <fieldset>
+                    <legend>Select (string array)</legend>
+                    <ol>
+                        <li>
+                            <select data-bind="options: colors, optionsCaption: 'Select a Color', value: color"></select>
+                        </li>
+                        <li>
+                            <div data-bind="text: color" class="output"></div>
+                        </li>
+                    </ol>
+                </fieldset>
             </div>
         </div>
         <script src="js/vendor/jquery-3.1.1.js"></script>
