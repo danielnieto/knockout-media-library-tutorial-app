@@ -42,6 +42,17 @@
                         </li>
                     </ol>
                 </fieldset>
+                <fieldset>
+                    <legend>Select (object array, select object)</legend>
+                    <ol>
+                        <li>
+                            <select data-bind="options: keyValuePairs, optionsCaption: 'Select an object', optionsText: 'key', optionsValue: 'value', value: ordinal"></select>
+                        </li>
+                        <li>
+                            <div data-bind="text: ordinal" class="output"></div>
+                        </li>
+                    </ol>
+                </fieldset>
             </div>
         </div>
         <script src="js/vendor/jquery-3.1.1.js"></script>

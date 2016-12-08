@@ -8,6 +8,7 @@ app.DataBindingViewModel = (function(){
         colors: ["Red", "Green", "Blue", "Yellow", "Black", "White"],
         keyValuePair: ko.observable(),
         keyValuePairs: [{key: "First", value: "1"},{key: "Second", value: "2"},{key: "Third", value: "3"},{key: "Fourth", value: "4"}],
+        ordinal: ko.observable(undefined),
         loadMessage: loadMessage
     }
 
