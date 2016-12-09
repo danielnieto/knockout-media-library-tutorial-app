@@ -53,6 +53,21 @@
                         </li>
                     </ol>
                 </fieldset>
+                <fieldset>
+                    <legend>Multi-select</legend>
+                    <ol>
+                        <li>
+                            <select size="6" multiple="multiple" data-bind="options: colors, selectedOptions: chosenColors"></select>
+                        </li>
+                        <li>
+                            <div class="output">
+                                <ul data-bind="foreach: chosenColors">
+                                    <li data-bind="text: $data"></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ol>
+                </fieldset>
             </div>
         </div>
         <script src="js/vendor/jquery-3.1.1.js"></script>
