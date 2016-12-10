@@ -68,6 +68,21 @@
                         </li>
                     </ol>
                 </fieldset>
+                <fieldset>
+                    <legend>Radio Buttons</legend>
+                    <ol>
+                        <li>
+                            <!--ko foreach: colors-->
+                                <input type="radio" name="color" data-bind="value: $data, checked: $parent.color" >
+                                <label data-bind="text: $data" class="checkbox"></label>
+                                <br>
+                            <!--/ko-->
+                        </li>
+                        <li>
+                            <div class="output" data-bind="text: color"></div>
+                        </li>
+                    </ol>
+                </fieldset>
             </div>
         </div>
         <script src="js/vendor/jquery-3.1.1.js"></script>
