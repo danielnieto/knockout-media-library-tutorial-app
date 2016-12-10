@@ -11,7 +11,8 @@ app.DataBindingViewModel = (function(){
         keyValuePair: ko.observable(),
         keyValuePairs: [{key: "First", value: "1"},{key: "Second", value: "2"},{key: "Third", value: "3"},{key: "Fourth", value: "4"}],
         ordinal: ko.observable(undefined),
-        loadMessage: loadMessage
+        loadMessage: loadMessage,
+        showMessage: showMessage
     }
 
     function _init(){
@@ -22,6 +23,10 @@ app.DataBindingViewModel = (function(){
 
     function loadMessage(){
         me.message("My favorite color is: " + me.colors[Math.floor(Math.random() * me.colors.length)].toLowerCase());
+    }
+
+    function showMessage(){
+        alert(me.message() ? me.message() : "");
     }
 
     _init();
