@@ -5,6 +5,7 @@ app.DataBindingViewModel = (function(){
     var me = {
         message: ko.observable(''),
         color: ko.observable(''),
+        isChecked: ko.observable(true),
         chosenColors: ko.observableArray([]),
         colors: ["Red", "Green", "Blue", "Yellow", "Black", "White"],
         keyValuePair: ko.observable(),
