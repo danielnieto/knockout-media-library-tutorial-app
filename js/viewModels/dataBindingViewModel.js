@@ -12,7 +12,9 @@ app.DataBindingViewModel = (function(){
         keyValuePairs: [{key: "First", value: "1"},{key: "Second", value: "2"},{key: "Third", value: "3"},{key: "Fourth", value: "4"}],
         ordinal: ko.observable(undefined),
         loadMessage: loadMessage,
-        showMessage: showMessage
+        showMessage: showMessage,
+        isEnabled: ko.observable(true),
+        isDisabled: ko.observable(true),
     }
 
     function _init(){

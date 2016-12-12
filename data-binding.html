@@ -12,24 +12,26 @@
                     <legend>Input</legend>
                     <ol>
                         <li>
-                            <input type="text" data-bind="textInput: message">
+                            <input type="text" data-bind="enable: isEnabled, textInput: message">
                         </li>
                         <li>
                             <div data-bind="text:message" class="output"></div>
                         </li>
                     </ol>
                     <button data-bind="click: loadMessage">Load Message</button>
+                    <input type="checkbox" data-bind="checked: isEnabled">
                 </fieldset>
                 <fieldset>
                     <legend>Select (string array)</legend>
                     <ol>
                         <li>
-                            <select data-bind="options: colors, optionsCaption: 'Select a Color', value: color"></select>
+                            <select data-bind="disable: isDisabled, options: colors, optionsCaption: 'Select a Color', value: color"></select>
                         </li>
                         <li>
                             <div data-bind="text: color" class="output"></div>
                         </li>
                     </ol>
+                    <input type="checkbox" data-bind="checked: isDisabled">
                 </fieldset>
                 <fieldset>
                     <legend>Select (object array, select object)</legend>
