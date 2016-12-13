@@ -14,6 +14,7 @@ app.DataBindingViewModel = (function(){
         loadMessage: loadMessage,
         showMessage: showMessage,
         isEnabled: ko.observable(true),
+        isFocused: ko.observable(false),
         isDisabled: ko.observable(true),
     }
 
@@ -21,6 +22,8 @@ app.DataBindingViewModel = (function(){
         me.message.subscribe(function(v){
             console.log(v);
         });
+
+        me.isFocused(true);
     }
 
     function loadMessage(){

@@ -37,7 +37,7 @@
                     <legend>Select (object array, select object)</legend>
                     <ol>
                         <li>
-                            <select data-bind="options: keyValuePairs, optionsCaption: 'Select an option', optionsText: function(i){return i.key}, value: keyValuePair"></select>
+                            <select data-bind="hasFocus: isFocused, options: keyValuePairs, optionsCaption: 'Select an option', optionsText: function(i){return i.key}, value: keyValuePair"></select>
                         </li>
                         <li>
                             <div data-bind="text: keyValuePair() ? keyValuePair().value : ''" class="output"></div>
