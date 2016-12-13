@@ -13,6 +13,23 @@
                     <li><a href="borrowers.html">Borrowers</a></li>
                 </ul>
                 <h1>Manage Media</h1>
+                <table>
+                    <thead>
+                        <th>ISBN</th>
+                        <th>Type</th>                        
+                        <th>Name</th>                        
+                    </thead>
+                    <tbody data-bind="foreach: catalog">
+                        <tr>
+                            <td><input type="text" data-bind="enable: false, value: ISBN"></td>
+                            <td><select data-bind="options: $parent.mediaTypes, optionsText: 'Name', optionsValue: 'Name', optionsCaption: 'Select a Media Type', value: MediaType "></select></td>
+                            <td><input type="text" data-bind="textInput: Name"></td>                                
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    <input type="button" data-bind="click: save" value="Save">
+                </p>
             </div>
         </div>
         <script src="js/vendor/jquery-3.1.1.js"></script>
