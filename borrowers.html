@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Borrowers</title>
+        <link href="css/Site.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="layout">
+            <div class="content">
+                <ul class="menu">
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="media.html">Media</a></li>
+                    <li><a href="borrowers.html">Borrowers</a></li>
+                </ul>
+                <h1>Manage Borrowers</h1>
+            </div>
+        </div>
+        <script src="js/vendor/jquery-3.1.1.js"></script>
+        <script src="js/vendor/knockout-3.4.1.js"></script>
+        <script src="js/DataContext.js"></script>   
+        <script src="js/models/media.js"></script>
+        <script src="js/viewModels/borrowersViewModel.js"></script>
+        <script>
+            $(document).ready(function(){
+
+                ko.applyBindings(app.BorrowersViewModel);
+
+            });
+        </script>
+    </body>
+</html>
