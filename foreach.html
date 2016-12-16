@@ -4,6 +4,18 @@
         <title>ForEach</title>
     </head>
     <body>
+
+        <ul data-bind="foreach: $context.$data.products">
+            <li>
+                <h4 data-bind="text: $context.$index() + ' ' + $context.$data.Name"></h4>
+                <ul data-bind="foreach: $context.$data.Colors">
+                    <li data-bind="text: $context.$parentContext.$index() + '.' + $context.$index() + ' ' + $context.$data"></li>
+                </ul>
+            </li>
+        </ul>
+        
+        <div data-bind="text: JSON.stringify($context)"></div>
+
         <script src="js/vendor/jquery-3.1.1.js"></script>
         <script src="js/vendor/knockout-3.4.1.js"></script>   
         <script src="js/viewModels/forEachViewModel.js"></script>
