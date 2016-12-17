@@ -4,6 +4,34 @@
         <title>With</title>
     </head>
     <body>
+
+        <!--ko foreach: taxonomies-->
+        <div data-bind="with: Animal">
+            <div data-bind="with: Kingdom">
+                <div data-bind="with: Phylum">
+                    <div data-bind="with: Class">
+                        <div data-bind="with: Order">
+                            <div data-bind="with: Family">
+                                <div data-bind="with: Genus">
+                                    <div data-bind="with: Species">
+                                        <h1 data-bind="text: $parents[6].Name">Animal</h1>
+                                        <div data-bind="text: $parents[5].Name">Kingdom</div>
+                                        <div data-bind="text: $parents[4].Name">Phylum</div>
+                                        <div data-bind="text: $parents[3].Name">Class</div>
+                                        <div data-bind="text: $parents[2].Name">Order</div>
+                                        <div data-bind="text: $parents[1].Name">Family</div>
+                                        <div data-bind="text: $parent.Name">Genus</div>
+                                        <div data-bind="text: $data.Name">Species</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/ko-->
+ 
         <script src="js/vendor/jquery-3.1.1.js"></script>
         <script src="js/vendor/knockout-3.4.1.js"></script>   
         <script src="js/viewModels/withViewModel.js"></script>
