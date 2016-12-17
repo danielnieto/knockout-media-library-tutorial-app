@@ -15,13 +15,13 @@
                                 <div data-bind="with: Genus">
                                     <div data-bind="with: Species">
                                         <h1 data-bind="text: $parents[6].Name, click: function () { $root.display($parents[6]); }">Animal</h1>
-                                        <div data-bind="text: $parents[5].Name">Kingdom</div>
-                                        <div data-bind="text: $parents[4].Name">Phylum</div>
-                                        <div data-bind="text: $parents[3].Name">Class</div>
-                                        <div data-bind="text: $parents[2].Name">Order</div>
-                                        <div data-bind="text: $parents[1].Name">Family</div>
-                                        <div data-bind="text: $parent.Name">Genus</div>
-                                        <div data-bind="text: $data.Name">Species</div>
+                                        <div data-bind="text: $parents[5].Name, click: function () { $root.detail($element); }">Kingdom</div>
+                                        <div data-bind="text: $parents[4].Name, click: function () { $root.detail($element); }">Phylum</div>
+                                        <div data-bind="text: $parents[3].Name, click: function () { $root.detail($element); }">Class</div>
+                                        <div data-bind="text: $parents[2].Name, click: function () { $root.detail($element); }">Order</div>
+                                        <div data-bind="text: $parents[1].Name, click: function () { $root.detail($element); }">Family</div>
+                                        <div data-bind="text: $parent.Name, click: function () { $root.detail($element); }">Genus</div>
+                                        <div data-bind="text: $data.Name, click: function () { $root.detail($element); }">Species</div>
                                     </div>
                                 </div>
                             </div>

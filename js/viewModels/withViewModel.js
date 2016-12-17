@@ -83,8 +83,13 @@ app.WithViewModel = (function(){
                 }
             }
         }],
-        display: display
+        display: display,
+        detail: detail
     };
+
+    function detail(element){
+        alert(element.innerText);
+    }
 
 
     function display(animal){
