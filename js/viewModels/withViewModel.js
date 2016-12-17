@@ -82,8 +82,21 @@ app.WithViewModel = (function(){
                     }
                 }
             }
-        }]
+        }],
+        display: display
     };
+
+
+    function display(animal){
+       alert(animal.Name + "\n" + 
+              animal.Kingdom.Name + "\n" + 
+              animal.Kingdom.Phylum.Name + "\n" + 
+              animal.Kingdom.Phylum.Class.Name + "\n" +
+              animal.Kingdom.Phylum.Class.Order.Name + "\n" +
+              animal.Kingdom.Phylum.Class.Order.Family.Name + "\n" +
+              animal.Kingdom.Phylum.Class.Order.Family.Genus.Name + "\n" +
+              animal.Kingdom.Phylum.Class.Order.Family.Genus.Species.Name);
+    }
 
     return me;
 
