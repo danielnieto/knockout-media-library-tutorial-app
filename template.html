@@ -2,13 +2,35 @@
 <html>
     <head>
         <title>Template</title>
+        <link href="css/Site.css" rel="stylesheet">
     </head>
     <body>
         <div class="layout">
             <div class="content">
-
+                <h1>Books</h1>
+                <div data-bind="template:{name:'media-table', data: books, as:'catalog'}"></div>
+                <h1>Magazines</h1>
+                <div data-bind="template:{name:'media-table', data: magazines, as:'catalog'}"></div>
             </div>
         </div>
+        <script type="text/html" id="media-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ISBN</th>
+                        <th>Media Type</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: catalog">
+                    <tr>
+                        <td data-bind="text: ISBN"></td>
+                        <td data-bind="text: MediaType"></td>
+                        <td data-bind="text: Name"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </script>
         <script src="js/vendor/jquery-3.1.1.js"></script>
         <script src="js/vendor/knockout-3.4.1.js"></script>   
         <script src="js/DataContext.js"></script>   
