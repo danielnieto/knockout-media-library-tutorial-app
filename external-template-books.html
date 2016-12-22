@@ -8,9 +8,8 @@
         <div class="layout">
             <div class="content">
                 <h1>Books</h1>
-                <div data-bind="template:{name:'media-table', data: books, as:'catalog'}"></div>
-                <h1>Magazines</h1>
-                <div data-bind="template:{name:'media-table', data: magazines, as:'catalog'}"></div>
+                <!-- ko template: {name: 'media-table', data: books}-->
+                <!-- /ko -->
             </div>
         </div>
         <script src="js/vendor/jquery-3.1.1.js"></script>

@@ -3,9 +3,12 @@ var app = window.app || {};
 app.TemplateViewModel = (function(ko, db){
     'use strict';
 
+    var _templates = ["media-table"];
+
     var me = {
         books: ko.observableArray([]),
-        magazines: ko.observableArray([])
+        magazines: ko.observableArray([]),
+        loadTemplates: loadTemplates
     }
 
     function _init(){
@@ -24,6 +27,19 @@ app.TemplateViewModel = (function(ko, db){
             });
             me.books(b);
             me.magazines(m);
+        });
+    }
+
+    function loadTemplates(callback) {
+        var counter = 0;
+        ko.utils.arrayForEach(_templates, function (template) {
+            $.get('/templates/' + template + '.html', null, function (content) {
+                $('body').append('<script id="' + template + '" type="text/html">' + content + '</script>');
+                counter++;
+                if ($.isFunction(callback) && _templates.length === counter) {
+                    callback();
+                }
+            });
         });
     }
 
