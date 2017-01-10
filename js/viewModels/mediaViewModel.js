@@ -6,6 +6,7 @@ app.MediaViewModel = (function(ko, db){
     var me = {
         catalog: ko.observableArray([]),
         mediaTypes: ko.observableArray([]),
+        sortedCatalog: undefined,
         save: save
     }
 
@@ -27,6 +28,12 @@ app.MediaViewModel = (function(ko, db){
             me.mediaTypes(data);
             _getCatalog();
         });
+
+         me.sortedCatalog = ko.computed(function () {
+                return this.catalog().sort(function (l, r) {
+                    return (l.MediaType === r.MediaType ? 0 : l.MediaType > r.MediaType ? 1 : -1) || (l.Name === r.Name ? 0 : l.Name > r.Name ? 1 : -1);
+                });
+            }, me);
     }
 
     function save(){

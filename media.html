@@ -19,7 +19,7 @@
                         <th>Type</th>                        
                         <th>Name</th>                        
                     </thead>
-                    <tbody data-bind="foreach: catalog">
+                    <tbody data-bind="foreach: sortedCatalog">
                         <tr>
                             <td><input type="text" data-bind="enable: false, value: ISBN"></td>
                             <td><select data-bind="options: $parent.mediaTypes, optionsText: 'Name', optionsValue: 'Name', optionsCaption: 'Select a Media Type', value: MediaType "></select></td>
