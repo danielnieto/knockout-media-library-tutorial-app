@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Media Catalog</title>
+        <link href="css/Site.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="layout">
+            <div class="content">
+                <h1>Media Titles</h1>
+                <div id="media" data-bind="template: {name: 'details-table', data: mediaViewModel.catalog}"></div>
+                <h1>Borrowers</h1>
+                <div id="borrowers" data-bind="template: {name: 'details-table', data: borrowersViewModel.borrowers}"></div>
+            </div>
+        </div>
+        <template id="details-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: $data">
+                    <tr>
+                        <td data-bind="text: Name"></td>
+                        <td><button data-bind="click: $root.details">Details</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </template>
+        <script src="js/vendor/jquery-3.1.1.js"></script>
+        <script src="js/vendor/knockout-3.4.1.js"></script>
+        <script src="js/DataContext.js"></script>   
+        <script src="js/models/media.js"></script>
+        <script src="js/models/borrower.js"></script>
+        <script src="js/viewModels/borrowersViewModel.js"></script>
+        <script src="js/viewModels/mediaViewModel.js"></script>
+        <script>
+        
+            $(document).ready(function(){
+
+                app.CompositeViewModel = (function(m,b){
+                    var me = {
+                        mediaViewModel: m,
+                        borrowersViewModel: b,
+                        details: details
+                    }
+
+                    function details(data){  
+                        alert(JSON.stringify(data.Name));
+                    }
+
+                    return me;
+
+                })(app.MediaViewModel,app.BorrowersViewModel);
+                
+                // instead of applying two independent viewModels
+                // ko.applyBindings(app.MediaViewModel, $("#media")[0]);
+                // ko.applyBindings(app.BorrowersViewModel, $("#borrowers")[0]);
+
+                ko.applyBindings(app.CompositeViewModel);
+                
+
+
+
+            });
+        </script>
+    </body>
+</html>
