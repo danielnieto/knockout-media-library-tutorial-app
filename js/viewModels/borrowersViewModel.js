@@ -5,6 +5,7 @@ app.BorrowersViewModel = (function(ko, db){
 
     var me = {
         borrowers: ko.observableArray([]),
+        sortedBorrowers: undefined,
         save: save
     }
 
@@ -17,11 +18,16 @@ app.BorrowersViewModel = (function(ko, db){
              });
 
              me.borrowers(tmpArray);
-        })
+        });
     }
 
     function _init(){
         _getBorrowers();
+        me.sortedBorrowers =  ko.pureComputed(function () {
+            return this.borrowers().sort(function (l, r){
+                return (l.Name === r.Name ? 0 : l.Name > r.Name ? 1 : -1) || (l.Email === r.Email ? 0 : l.Email > r.Email ? 1 : -1);
+            });
+        }, me);
     }
 
     function save(){
