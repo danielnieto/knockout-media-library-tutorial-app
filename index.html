@@ -18,13 +18,34 @@
                         <th>Type</th>
                         <th>Name</th>
                     </tr>
-                    <tbody data-bind="foreach: catalog">
+                    <tbody data-bind="foreach: possessed">
                         <tr data-bind="style:{'font-weight': MediaType === 'Book' ? 'bold' : 'normal'}, css: {digital: $.inArray(MediaType, ['CD','DVD','Game']) > 1}">
                             <td data-bind="text: MediaType"></td>
                             <td data-bind="text: Name, attr:{ title: ISBN}"></td>
                         </tr>
                     </tbody>
                 </table>
+                <!-- ko if: borrowed().length > 0-->
+                <h1>Borrowed</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Media Type</th>
+                            <th>Name</th>
+                            <th>Borrowed By</th>
+                            <th>Due Date</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: borrowed">
+                        <tr data-bind="css: { overdue: new Date(DueDate()) < new Date() }">
+                            <td data-bind="text: MediaType"></td>
+                            <td data-bind="text: Name, attr: { title: ISBN }"></td>
+                            <td data-bind="text: Borrower"></td>
+                            <td data-bind="text: DueDate"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- /ko -->
             </div>
         </div>
         <script src="js/vendor/jquery-3.1.1.js"></script>

@@ -47,10 +47,12 @@ ul.menu {
             }
 
 table {
+    border: 1px solid #428075;
+    margin-top: 10px;
     width: 100%;
 }
 
-    table th {
+    table thead th {
         background: #428075;
         color: #fff;
     }
@@ -65,7 +67,6 @@ table {
 
 fieldset {
     border: 1px solid #000;
-    margin-bottom: 20px;
     padding: 10px;
 }
 
@@ -84,12 +85,13 @@ fieldset {
                 font-size: small;
             }
 
-                fieldset ol li label.checkbox {
-                    display: inline-block;
-                }
-
 input[type=text], select {
     width: 100%;
+}
+
+tr.overdue {
+    color: red;
+    font-weight: bold;
 }
 
 .output {
