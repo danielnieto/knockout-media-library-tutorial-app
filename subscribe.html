@@ -7,17 +7,41 @@
     <body>
         <div class="layout">
             <div class="content">
-                     <fieldset>
-                        <legend>Borrowers</legend>
-                        <ol>
-                            <li>
-                                <select data-bind="options: borrowers, optionsText: 'Name', optionsValue: 'Email', optionsCaption: 'Select a Borrower', value: borrower"></select>
-                            </li>
-                            <li>
-                                <select data-bind="enable: catalog().length > 0, options: catalog, optionsText: 'Name', optionsCaption: 'Select a Borrowed Item', value: media"></select>
-                            </li>
-                        </ol>
-                    </fieldset>
+                <fieldset>
+                    <legend>Borrowers</legend>
+                    <ol>
+                        <li>
+                            <select data-bind="options: borrowers, optionsText: 'Name', optionsValue: 'Email', optionsCaption: 'Select a Borrower', value: borrower"></select>
+                        </li>
+                        <li>
+                            <select data-bind="enable: catalog().length > 0, options: catalog, optionsText: 'Name', optionsCaption: 'Select a Borrowed Item', value: media"></select>
+                        </li>
+                    </ol>
+                </fieldset>
+                <!-- ko if: media() -->
+                <br>
+                <fieldset>
+                    <legend>Borrowed Item Details</legend>
+                    <ol data-bind="with: media">
+                        <li>
+                            <label>ISBN</label>
+                            <div data-bind="text: ISBN" class="output"></div>
+                        </li>
+                        <li>
+                            <label>MediaType</label>
+                            <div data-bind="text: MediaType" class="output"></div>
+                        </li>
+                        <li>
+                            <label>Name</label>
+                            <div data-bind="text: Name" class="output"></div>
+                        </li>
+                        <li>
+                            <label>Due Date</label>
+                            <div data-bind="text: DueDate" class="output"></div>
+                        </li>
+                    </ol>
+                </fieldset>
+                <!-- /ko -->
             </div>
         </div>
         <script src="js/vendor/jquery-3.1.1.js"></script>
