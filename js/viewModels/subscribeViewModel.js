@@ -24,7 +24,11 @@ app.SubscribeViewModel = (function(ko, db){
                     me.catalog(data);
                 });
 
-        })
+        });
+
+         me.borrower.subscribe(function (v) {
+            me.previousBorrower(v);
+        }, null, 'beforeChange');
     }
 
     _init();
