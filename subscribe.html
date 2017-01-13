@@ -7,7 +7,17 @@
     <body>
         <div class="layout">
             <div class="content">
-
+                     <fieldset>
+                        <legend>Borrowers</legend>
+                        <ol>
+                            <li>
+                                <select data-bind="options: borrowers, optionsText: 'Name', optionsValue: 'Email', optionsCaption: 'Select a Borrower', value: borrower"></select>
+                            </li>
+                            <li>
+                                <select data-bind="enable: catalog().length > 0, options: catalog, optionsText: 'Name', optionsCaption: 'Select a Borrowed Item', value: media"></select>
+                            </li>
+                        </ol>
+                    </fieldset>
             </div>
         </div>
         <script src="js/vendor/jquery-3.1.1.js"></script>
