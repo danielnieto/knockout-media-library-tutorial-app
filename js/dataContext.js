@@ -4,10 +4,12 @@ app.DataContext = (function ($) {
     var me = {
         deleteBorrower: deleteBorrower,
         deleteMedia: deleteMedia,
+        getBorrowedCatalog: getBorrowedCatalog,
         getBorrowers: getBorrowers,
         getCatalog: getCatalog,
         getGuid: getGuid,
         getMediaTypes: getMediaTypes,
+        resetData: resetData,
         saveBorrower: saveBorrower,
         saveMedia: saveMedia
     };
@@ -58,6 +60,16 @@ app.DataContext = (function ($) {
         }
     }
 
+    function getBorrowedCatalog(email, callback) {
+        if ($.isFunction(callback)) {
+            getCatalog(function (data) {
+                callback(ko.utils.arrayFilter(data || [], function (item) {
+                    return item.Borrower === email;
+                }));
+            });
+        }
+    }
+
     function getBorrowers(callback) {
         var borrowers = null;
         if ($.isFunction(callback)) {
@@ -74,8 +86,9 @@ app.DataContext = (function ($) {
     }
 
     function getCatalog(callback) {
-        if (typeof callback === 'function') {
-            var catalog = localStorage["catalog"];
+        var catalog = null;
+        if ($.isFunction(callback)) {
+            catalog = localStorage["catalog"];
             if (catalog) {
                 callback(JSON.parse(catalog));
             } else {
@@ -99,6 +112,11 @@ app.DataContext = (function ($) {
                 callback(data.MediaTypes);
             });
         }
+    }
+
+    function resetData() {
+        localStorage["borrowers"] = [];
+        localStorage["catalog"] = [];
     }
 
     function saveBorrower(obj) {
