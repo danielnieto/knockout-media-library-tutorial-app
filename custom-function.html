@@ -7,11 +7,35 @@
     <body>
         <div class="layout">
             <div class="content">
-                
+                <h1>Books</h1>
+                <!-- ko template: { name: 'media-template', data: books } --><!-- /ko -->
+                <h1>CD's</h1>
+                <!-- ko template: { name: 'media-template', data: cds } --><!-- /ko -->
+                <h1>DVD's</h1>
+                <!-- ko template: { name: 'media-template', data: dvds } --><!-- /ko -->
+                <h1>Games</h1>
+                <!-- ko template: { name: 'media-template', data: games } --><!-- /ko -->
+                <h1>Magazines</h1>
+                <!-- ko template: { name: 'media-template', data: magazines } --><!-- /ko -->
             </div>
         </div>
+        <script id="media-template" type="text/html">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: $data">
+                <tr>
+                    <td data-bind="text: Name"></td>
+                </tr>
+            </tbody>
+        </table>
+        </script>
         <script src="js/vendor/jquery-3.1.1.js"></script>
         <script src="js/vendor/knockout-3.4.1.js"></script>   
+        <script src="js/knockoutExtensions.js"></script>   
         <script src="js/DataContext.js"></script>   
         <script src="js/viewModels/customFunctionViewModel.js"></script>
         <script>
