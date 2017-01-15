@@ -7,12 +7,31 @@
     <body>
         <div class="layout">
             <div class="content">
-                
+                <h1>Manage Borrowers</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: sortedBorrowers">
+                        <tr>
+                            <td><input type="text" data-bind="textInput: Name"></td>
+                            <td><input type="text" data-bind="textInput: Email"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    <input type="button" data-bind="click: save" value="Save">
+                </p>
             </div>
         </div>
         <script src="js/vendor/jquery-3.1.1.js"></script>
         <script src="js/vendor/knockout-3.4.1.js"></script>   
+        <script src="js/knockoutExtensions.js"></script>   
         <script src="js/DataContext.js"></script>   
+        <script src="js/models/borrower.js"></script>
         <script src="js/viewModels/extenderViewModel.js"></script>
         <script>
             $(document).ready(function(){
