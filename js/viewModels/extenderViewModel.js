@@ -32,6 +32,7 @@ app.ExtenderViewModel = (function(ko, db){
 
     function save(){
         ko.utils.arrayForEach(me.borrowers(), function(item){
+            if(item.HasError()) return;
             db.saveBorrower(ko.toJS(item));
         });
     }
