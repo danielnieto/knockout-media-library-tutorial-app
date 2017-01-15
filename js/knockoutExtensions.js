@@ -13,3 +13,15 @@ ko.observableArray.fn.filterByProperty = function (property, value) {
         return matches;
     }, this);
 };
+
+ko.extenders.required = function (target, message) {
+    target.hasError = ko.observable();
+    target.validationMessage = ko.observable();
+    function validate(newValue) {
+        target.hasError(newValue ? false : true);
+        target.validationMessage(newValue ? "" : message || "This field is required");
+    }
+    validate(target());
+    target.subscribe(validate);
+    return target;
+};
