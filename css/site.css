@@ -102,3 +102,11 @@ tr.overdue {
     min-height: 35px;
     padding: 5px;
 }
+
+li.error label {
+    color: red;
+}
+
+li.error input, li.error select, input.error, select.error {
+    border: 1px solid red;
+}
