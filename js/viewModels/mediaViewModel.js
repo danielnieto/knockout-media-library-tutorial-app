@@ -6,11 +6,30 @@ app.MediaViewModel = (function(ko, db){
     var me = {
         catalog: ko.observableArray([]),
         media: ko.observable(undefined),
-        edit: edit,
         mediaTypes: ko.observableArray([]),
+        newMedia: ko.observable(undefined),
         sortedCatalog: undefined,
-        saveEdit: saveEdit
+        add: add,
+        cancel:cancel,
+        edit: edit,
+        saveEdit: saveEdit,
+        saveNew: saveNew
+    };
+
+     function add() {
+        me.newMedia(new app.Media(db.getGuid(), '', ''));
     }
+
+    function cancel() {
+        me.newMedia(undefined);
+    }
+
+     function saveNew() {
+        db.saveMedia(ko.toJS(me.newMedia()));
+        me.catalog.push(me.newMedia());
+        me.newMedia(undefined);
+    }
+
 
     function _getCatalog(){
         db.getCatalog(function(data){

@@ -13,6 +13,7 @@
                     <li><a href="borrowers.html">Borrowers</a></li>
                 </ul>
                 <h1>Manage Media</h1>
+                <button class="ui-button" data-bind="click: add">Add</button>
                 <table>
                     <thead>
                         <th>Type</th>                        
@@ -30,6 +31,7 @@
             </div>
         </div>
         <div data-bind="template: { name: 'media-template', data: media, if: media }, dialog: media, dialogOptions: { title: 'Edit Media', buttons: { 'Save': saveEdit }, dialogClass: 'no-close', modal: true, autoOpen: false, resizable: false, closeOnEscape: false, width: '440px' }"></div>
+        <div data-bind="template: { name: 'media-template', data: newMedia, if: newMedia }, dialog: newMedia, dialogOptions: { title: 'New Media', buttons: { 'Save': saveNew, 'Cancel': cancel }, dialogClass: 'no-close', modal: true, autoOpen: false, resizable: false, closeOnEscape: false, width: '440px' }"></div>
          <script id="media-template" type="text/html">
             <ol>
                 <li>
