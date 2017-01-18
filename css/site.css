@@ -1,4 +1,7 @@
-﻿* {
+﻿@import "./jquery-ui.css";
+
+
+* {
     font-family: Arial, sans-serif;
 }
 

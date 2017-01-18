@@ -15,25 +15,41 @@
                 <h1>Manage Media</h1>
                 <table>
                     <thead>
-                        <th>ISBN</th>
                         <th>Type</th>                        
-                        <th>Name</th>                        
+                        <th>Name</th>      
+                        <th></th>                  
                     </thead>
                     <tbody data-bind="foreach: sortedCatalog">
                         <tr>
-                            <td><input type="text" data-bind="enable: false, value: ISBN"></td>
-                            <td><select data-bind="options: $parent.mediaTypes, optionsText: 'Name', optionsValue: 'Name', optionsCaption: 'Select a Media Type', value: MediaType "></select></td>
-                            <td><input type="text" data-bind="textInput: Name"></td>                                
+                            <td data-bind="text: MediaType"></td>
+                            <td data-bind="text: Name"></td>
+                            <td><button class="ui-button" data-bind="click: $parent.edit">Edit</button></td>
                         </tr>
                     </tbody>
                 </table>
-                <p>
-                    <input type="button" data-bind="click: save" value="Save">
-                </p>
             </div>
         </div>
+        <div data-bind="template: { name: 'media-template', data: media, if: media }, dialog: media, dialogOptions: { title: 'Edit Media', buttons: { 'Save': saveEdit }, dialogClass: 'no-close', modal: true, autoOpen: false, resizable: false, closeOnEscape: false, width: '440px' }"></div>
+         <script id="media-template" type="text/html">
+            <ol>
+                <li>
+                    <label for="mediatype">Media Type</label>
+                    <select id="mediatype" data-bind="options: $parent.mediaTypes, optionsText: 'Name', optionsValue: 'Name', optionsCaption: 'Select a Media Type', value: MediaType"></select>
+                </li>
+                <li>
+                    <label for="isbn">ISBN</label>
+                    <input id="isbn" type="text" data-bind="enable: false, textInput: ISBN">
+                </li>
+                <li>
+                    <label for="name">Name</label>
+                    <input id="name" type="text" data-bind="textInput: Name">
+                </li>
+            </ol>
+        </script>
         <script src="js/vendor/jquery-3.1.1.js"></script>
+        <script src="js/vendor/jquery-ui.js"></script>
         <script src="js/vendor/knockout-3.4.1.js"></script>
+        <script src="js/knockoutExtensions.js"></script>   
         <script src="js/DataContext.js"></script>   
         <script src="js/models/media.js"></script>
         <script src="js/viewModels/mediaViewModel.js"></script>

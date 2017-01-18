@@ -5,9 +5,11 @@ app.MediaViewModel = (function(ko, db){
 
     var me = {
         catalog: ko.observableArray([]),
+        media: ko.observable(undefined),
+        edit: edit,
         mediaTypes: ko.observableArray([]),
         sortedCatalog: undefined,
-        save: save
+        saveEdit: saveEdit
     }
 
     function _getCatalog(){
@@ -36,11 +38,13 @@ app.MediaViewModel = (function(ko, db){
             }, me);
     }
 
-    function save(){
-        ko.utils.arrayForEach(me.catalog(), function(item){
-            console.log(item);
-            db.saveMedia(ko.toJS(item));
-        });
+    function saveEdit(){
+            db.saveMedia(ko.toJS(me.media()));
+            me.media(undefined);
+    }
+
+    function edit(obj, evt) {
+        me.media(obj);
     }
 
     _init(); 
