@@ -4,8 +4,10 @@
         <title>knockout component</title>
     </head>
     <body>
-
+        <h1>Component Binding</h1>
         <div data-bind="component: {name: 'color-list', params: {display: showColor}}"></div>
+        <h1>Custom Element</h1>
+        <color-list params="{display: showColor}"></color-list>
 
         <script src="js/vendor/jquery-3.1.1.js"></script>
         <script src="js/vendor/knockout-3.4.1.js"></script> 
