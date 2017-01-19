@@ -4,7 +4,11 @@ app.ComponentViewModel = (function(){
     'use strict';
 
     var me = {
-        title: "Works"
+        showColor: showColor
+    }
+
+    function showColor(color){
+        alert(color);
     }
 
     return me;
